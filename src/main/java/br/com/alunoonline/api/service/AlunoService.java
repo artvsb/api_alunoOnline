@@ -3,7 +3,7 @@ package br.com.alunoonline.api.service;
 import br.com.alunoonline.api.model.Aluno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.AlunoRepository;
+import br.com.alunoonline.api.repository.AlunoRepository;
 
 @Service
 public class AlunoService {
