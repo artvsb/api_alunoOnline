@@ -26,4 +26,8 @@ public class AlunoService {
         return alunoRepository.findById(id);
     }
     // Optional<objeto> sinaliza que o métod0 pode retornar algo ou nada
+
+    public void deletarAlunoPorId(Long id) {
+        alunoRepository.deleteById(id);
+    }
 }
