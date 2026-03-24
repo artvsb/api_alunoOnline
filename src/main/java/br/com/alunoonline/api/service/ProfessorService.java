@@ -3,7 +3,9 @@ package br.com.alunoonline.api.service;
 import br.com.alunoonline.api.model.Professor;
 import br.com.alunoonline.api.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,4 +23,20 @@ public class ProfessorService {
     public Optional<Professor> buscarProfessorPorId(Long id) { return professorRepository.findById(id); }
 
     public void deletarProfessorPorId(Long id) { professorRepository.deleteById(id); }
+
+    public void atualizarProfessorPorId(Long id, Professor professorAtualizado) {
+        Optional<Professor> professorObsoleto = buscarProfessorPorId(id);
+
+        if (professorObsoleto.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+                    "Professor não encontrado!");
+        }
+
+        Professor professorEditado = professorObsoleto.get();
+
+        professorEditado.setNome(professorAtualizado.getNome());
+        professorEditado.setCpf(professorAtualizado.getCpf());
+        professorEditado.setEmail(professorAtualizado.getEmail());
+        professorRepository.save(professorAtualizado);
+    }
 }
