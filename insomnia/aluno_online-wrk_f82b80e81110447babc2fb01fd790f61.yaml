@@ -1,0 +1,309 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: aluno_online
+meta:
+  id: wrk_f82b80e81110447babc2fb01fd790f61
+  created: 1773852608035
+  modified: 1773852632837
+  description: ""
+collection:
+  - name: Aluno
+    meta:
+      id: fld_8e4b4010bddb424bb1f76678e7294ff0
+      created: 1773852819599
+      modified: 1773929883812
+      sortKey: -1773852819599
+      description: ""
+    children:
+      - url: http://localhost:8080/alunos
+        name: criarAluno
+        meta:
+          id: req_9f26dbe1ce5640c18ec6eef655785ccc
+          created: 1773852927322
+          modified: 1774309709291
+          isPrivate: false
+          description: ""
+          sortKey: -1773852927322
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Eulálio Xavier da Silva Cabral",
+            	"email": "eulxaviercabral@gmail.com",
+            	"cpf": "224.978.565-38"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/alunos
+        name: buscarTodosAlunos
+        meta:
+          id: req_14de6ba20f044bd0b18d643779df7856
+          created: 1773945506924
+          modified: 1774309632822
+          isPrivate: false
+          description: ""
+          sortKey: -1773945506924
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/alunos/3
+        name: buscarAlunoPorId
+        meta:
+          id: req_8151e0012d694550a324b47a553ad213
+          created: 1773948013936
+          modified: 1774309590765
+          isPrivate: false
+          description: ""
+          sortKey: -1773948013936
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/alunos/6
+        name: deletarAlunoPorId
+        meta:
+          id: req_575d8dd05c644b3caa80138ec7acf04c
+          created: 1774292578656
+          modified: 1774309627535
+          isPrivate: false
+          description: ""
+          sortKey: -1774292578656
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/alunos/3
+        name: atualizarAlunoPorId
+        meta:
+          id: req_550e9fd67d0045438bf2249bba490aba
+          created: 1774309129139
+          modified: 1774309704898
+          isPrivate: false
+          description: ""
+          sortKey: -1774309129139
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 3,
+            	"nome": "Cassandra Souto Dias Liotti",
+            	"email": "casssoutodias@live.com",
+            	"cpf": "251.264.999-67"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Professor
+    meta:
+      id: fld_6252feec70124aa1bad83fe5f1d15009
+      created: 1774280800843
+      modified: 1774280800843
+      sortKey: -1774280800843
+      description: ""
+    children:
+      - url: http://localhost:8080/professor
+        name: criarProfessor
+        meta:
+          id: req_d758bbcaf3454f66bfe25b18e8f81be7
+          created: 1774280806895
+          modified: 1774357784779
+          isPrivate: false
+          description: ""
+          sortKey: -1774280806895
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Michelle Lira Serafim",
+            	"email": "mi_liraserafim@gmail.com",
+            	"cpf": "336.847.699-14"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/professor/2
+        name: buscarProfessorPorId
+        meta:
+          id: req_b4eeabea850242abab94682469a3d08f
+          created: 1774282545710
+          modified: 1774282749480
+          isPrivate: false
+          description: ""
+          sortKey: -1774282545710
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/professor/
+        name: deletarProfessorPorId
+        meta:
+          id: req_acf0ed3188444e939150af45a553286e
+          created: 1774292644945
+          modified: 1774292733298
+          isPrivate: false
+          description: ""
+          sortKey: -1774292644945
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/professor
+        name: buscarTodosProfessores
+        meta:
+          id: req_fbe0b06ac0f44835b7f679a978dc1622
+          created: 1774292688635
+          modified: 1774292714180
+          isPrivate: false
+          description: ""
+          sortKey: -1774292688635
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/professor/1
+        name: atualizarProfessorPorId
+        meta:
+          id: req_142597daa3e6459083c3863d02f40178
+          created: 1774357844839
+          modified: 1775141588520
+          isPrivate: false
+          description: ""
+          sortKey: -1774357844839
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Ramon José Santos Cardoso",
+            	"email": "ramonjsantos10@hotmail.com",
+            	"cpf": "011.342.390-55"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.4.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_90cdb19ba70ee028053306475c8c5b4e18b946f8
+    created: 1773852608081
+    modified: 1773852608081
+environments:
+  name: Base Environment
+  meta:
+    id: env_90cdb19ba70ee028053306475c8c5b4e18b946f8
+    created: 1773852608071
+    modified: 1773852608071
+    isPrivate: false
