@@ -25,7 +25,9 @@ public class ProfessorService {
     public void deletarProfessorPorId(Long id) { professorRepository.deleteById(id); }
 
     public void atualizarProfessorPorId(Long id, Professor professorAtualizado) {
-        Optional<Professor> professorObsoleto = buscarProfessorPorId(id);
+		professorAtualizado.setId(id);
+		professorRepository.save(professorAtualizado);
+        /* Optional<Professor> professorObsoleto = buscarProfessorPorId(id);
 
         if (professorObsoleto.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,
@@ -37,6 +39,6 @@ public class ProfessorService {
         professorEditado.setNome(professorAtualizado.getNome());
         professorEditado.setCpf(professorAtualizado.getCpf());
         professorEditado.setEmail(professorAtualizado.getEmail());
-        professorRepository.save(professorAtualizado);
+        professorRepository.save(professorAtualizado); */
     }
 }

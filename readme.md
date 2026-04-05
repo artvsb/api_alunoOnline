@@ -88,3 +88,9 @@ Projeto: **Aluno Online**
     A camada Repository é responsável pela persistência de dados, realizando operações de CRUD no banco de dados. No projeto, ela é implementada com o Spring Data Jpa.
 
     Por fim, os dados são persistidos em banco de dados PostgreSQL, através das chamadas da camada Repository, que se conecta com cada entidade: alunoRepository, professorRepository, etc. 
+    
+**Funcionamento**
+
+Segue vídeo demonstrando funcionamento do código implementado no Insomnia, DBeaver
+
+<video controls src="Gravação de Tela 2026-04-05 às 12.24.32.mov" title="Title"></video>
