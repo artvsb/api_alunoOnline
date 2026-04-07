@@ -91,6 +91,62 @@ Projeto: **Aluno Online**
     
 **Funcionamento**
 
-Segue vídeo demonstrando funcionamento do código implementado no Insomnia, DBeaver
+Seguem prints demonstrando funcionamento do código implementado no Insomnia, DBeaver para cada um dos métodos apresentados
 
-<video controls src="Gravação de Tela 2026-04-05 às 12.24.32.mov" title="Title"></video>
+1. Método **criarAluno()** - inclui um novo aluno no BD<br>
+
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 09 59 14" src="https://github.com/user-attachments/assets/340b2b32-c009-4cfd-a372-410ae1c932bf" /><br>
+
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 02 43" src="https://github.com/user-attachments/assets/86a55409-0ef2-485c-bcc5-6d110190f696" /><br>
+
+2. Método **buscarTodosAlunos()** - retorna todos os alunos cadastrados<br>
+
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 04 18" src="https://github.com/user-attachments/assets/0b0a2089-d0a2-4654-b4b5-5ad0940ac0e3" /><br>
+
+3. Método **buscarAlunoPorId()** - retorna um aluno com ID específico<br>
+
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 05 25" src="https://github.com/user-attachments/assets/d5b735c9-4be8-4c37-ba42-e93eb1a31e3c" /><br>
+
+4. Método **deletarAlunoPorId()** - deleta um aluno específico do BD<br>
+
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 06 49" src="https://github.com/user-attachments/assets/25b80352-2220-485b-9f56-ba9666636524" /><br>
+
+5. Método **atualizarAlunoPorId()** - atualiza as informações de um aluno específico<br>
+
+Antes:<br>
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 08 11" src="https://github.com/user-attachments/assets/2067df85-b4f6-4b14-8fb6-7c3ce3a8264c" /><br>
+
+Depois:<br>
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 11 07" src="https://github.com/user-attachments/assets/0e50994f-bd68-4164-868c-ccfb0d1f4edd" /><br>
+
+6. Método **criarProfessor()** - inclui um novo professor no BD<br>
+
+Antes:<br>
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 12 25" src="https://github.com/user-attachments/assets/0c4e920d-95ea-4dd0-8c44-847391649e91" /><br>
+
+Depois:<br>
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 15 53" src="https://github.com/user-attachments/assets/9ffd6b2c-e877-444e-9b54-24fce315af61" /><br>
+
+7. Método **buscarTodosProfessores()** - retorna todos os professores cadastrados<br>
+
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 16 53" src="https://github.com/user-attachments/assets/48663d4f-353a-4447-9e89-0345b6ce4033" /><br>
+
+8. Método **buscarProfessorPorId()** - retorna um professor específico<br>
+
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 17 43" src="https://github.com/user-attachments/assets/2c0ade84-9f5f-47c1-88f8-bea91508c78b" /><br>
+
+9. Método **deletarProfessorPorId()** - deleta um professor específico<br>
+
+Antes:<br>
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 19 15" src="https://github.com/user-attachments/assets/fdb65f5a-5758-447d-9494-ccf955e5ab39" /><br>
+
+Depois:<br>
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 19 57" src="https://github.com/user-attachments/assets/b93193c1-843f-4c73-a434-ac0424e6f3cb" /><br>
+
+10. Método **atualizarProfessorPorId()** - atualiza os dados de um professor específico<br>
+
+Antes:<br>
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 21 00" src="https://github.com/user-attachments/assets/c475e24e-3ce4-414d-8a12-406419ac39a6" /><br>
+
+Depois:<br>
+<img width="1920" height="1080" alt="Captura de Tela 2026-04-07 às 10 22 08" src="https://github.com/user-attachments/assets/c52b83b4-ac8b-4984-b303-418294cc628b" />
