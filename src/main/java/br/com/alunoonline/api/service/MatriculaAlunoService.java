@@ -1,6 +1,6 @@
 package br.com.alunoonline.api.service;
 
-import br.com.alunoonline.api.dtos.AtualizarNotasRequestDTO;
+import br.com.alunoonline.api.dto.AtualizarNotasRequestDTO;
 import br.com.alunoonline.api.enums.MatriculaStatusEnum;
 import br.com.alunoonline.api.model.MatriculaAluno;
 import br.com.alunoonline.api.repository.MatriculaAlunoRepository;
