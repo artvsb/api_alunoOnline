@@ -28,8 +28,8 @@ public class UsuarioController {
 	@PostMapping
 	@Transactional
 	public ResponseEntity cadastro(@RequestBody @Valid
-									   DadosCadastroUsuario dados,
-								   UriComponentsBuilder uriBuilder) {
+								DadosCadastroUsuario dados,
+								UriComponentsBuilder uriBuilder) {
 		if (usuarioRepository.findByLogin(dados.login()) != null) {
 			return ResponseEntity.badRequest().body("Login já cadastrado.");
 		}

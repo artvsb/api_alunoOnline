@@ -1,5 +1,7 @@
 package br.com.alunoonline.api.service;
 
+import br.com.alunoonline.api.dto.DadosCadastroAluno;
+import br.com.alunoonline.api.dto.DadosDetalhamentoAluno;
 import br.com.alunoonline.api.model.Aluno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,7 +10,6 @@ import br.com.alunoonline.api.repository.AlunoRepository;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AlunoService {
@@ -16,50 +17,50 @@ public class AlunoService {
     @Autowired // injeta o repository no service
     AlunoRepository alunoRepository; // -> tem acesso ao BD
 
-    public void criarAluno(Aluno aluno) {
-        alunoRepository.save(aluno);
+    public DadosDetalhamentoAluno criarAluno(DadosCadastroAluno dados) {
+        Aluno novo = new Aluno(dados);
+		alunoRepository.save(novo);
+		return new DadosDetalhamentoAluno(novo.getNome(), novo.getEmail(), novo.getCpf(), novo.getAtivo());
     }
 
-    public List<Aluno> buscarTodosAlunos() {
-        return alunoRepository.findAll();
+    public List<DadosDetalhamentoAluno> buscarTodosAlunos() {
+        List<Aluno> alunos = alunoRepository.findAll();
+		return alunos.stream()
+				.map(aluno -> paraResposta(aluno))
+				.toList();
     }
 
-    public Optional<Aluno> buscarAlunoPorId(Long id) {
-        return alunoRepository.findById(id);
+    public DadosDetalhamentoAluno buscarAlunoPorId(Long id) {
+        return paraResposta(buscarOuFalhar(id));
     }
-    // Optional<objeto> sinaliza que o métod0 pode retornar algo ou nada
 
     public void deletarAlunoPorId(Long id) {
-        alunoRepository.deleteById(id);
+        if (!alunoRepository.existsById(id)) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Aluno não encontrado!");
+		}
+
+		alunoRepository.deleteById(id);
     }
 
-    public void atualizarAlunoPorId(Long id, Aluno alunoAtualizado) {
-		alunoAtualizado.setId(id);
-		alunoRepository.save(alunoAtualizado);
-		/* primeiro precisamos buscar o aluno para ver se ele existe no BD
-        Optional<Aluno> alunoObsoleto = buscarAlunoPorId(id);
+    public DadosDetalhamentoAluno atualizarAlunoPorId(Long id, DadosCadastroAluno dto) {
+		Aluno aluno = buscarOuFalhar(id);
+		aluno.setNome(dto.nome());
+		aluno.setEmail(dto.email());
+		aluno.setCpf(dto.cpf());
 
-        se não existir aluno com o id citado
-        if (alunoObsoleto.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-                    "Aluno não encontrado!");
-        }
+		Aluno salvo = alunoRepository.save(aluno);
+		return paraResposta(salvo);
+	}
+	private Aluno buscarOuFalhar(Long id) {
+		return alunoRepository.findById(id)
+				.orElseThrow(() -> new ResponseStatusException(
+						HttpStatus.NOT_FOUND, "Aluno não encontrado!"
+				));
+	}
 
-         se chegou aqui, significa que existe aluno com esse id no BD
-        vou puxá-lo e armazená-lo numa variável para editá-lo posteriormente
-        Aluno alunoEditado = alunoObsoleto.get();
-
-         com esse aluno para ser editado acima, faço os setters necessários para att os atributos dele;
-         é como se buscássemos o aluno em questão no BD, guardamos ele localmente enquanto
-         estamos editando, para devolvê-lo editado ao BD com os dados editados pelo front
-        alunoEditado.setNome(alunoAtualizado.getNome());
-        alunoEditado.setCpf(alunoAtualizado.getCpf());
-        alunoEditado.setEmail(alunoAtualizado.getEmail());
-
-         agora vou levar o alunoEditado para o BD
-        alunoRepository.save(alunoAtualizado);
-
-        esse métood é um PUT obrigatório, porque vai atualizar todos os dados mesmo que o
-         usuário não mude algum dado */
-    }
+	private DadosDetalhamentoAluno paraResposta(Aluno aluno) {
+		return new DadosDetalhamentoAluno(
+				aluno.getNome(), aluno.getEmail(), aluno.getCpf(), aluno.getAtivo()
+		);
+	}
 }
